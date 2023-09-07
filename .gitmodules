@@ -1,0 +1,3 @@
+[submodule "SIH-frontend"]
+	path = SIH-frontend
+	url = https://github.com/hs7898753/SIH1362.git
