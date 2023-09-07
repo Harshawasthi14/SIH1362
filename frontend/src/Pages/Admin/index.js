@@ -1,16 +1,17 @@
 import { Card, Space, Statistic, Table, Typography } from "antd";
 import {
-  DollarCircleOutlined,
   ShoppingCartOutlined,
   ShoppingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { useEffect, useState } from "react";
+import { getCustomers, getInventory, getOrders, getRevenue } from "../../API";
 function Admin(){
     return(
         <>
-   <Space size={40} direction="vertical">
-      <Typography.Title level={4}>Admin</Typography.Title>
-      <Space direction="horizontal" size="large" block>
+   <Space size={15} direction="vertical">
+      <Typography.Title level={6}>Admin - Dashboard</Typography.Title>
+      <Space direction="horizontal" size={35} block>
         <DashboardCard
         
           icon={
@@ -24,10 +25,11 @@ function Admin(){
               }}
             />
           }
-          title={"Orders"}
-          value={123456}
+          title={"School Registered"}
+          value={1489115}
         />
         <DashboardCard
+        size={100}
           icon={
             <ShoppingOutlined
               style={{
@@ -39,7 +41,7 @@ function Admin(){
               }}
             />
           }
-          title={"Inventory"}
+          title={"Government School"}
           value={123456}
         />
         <DashboardCard
@@ -54,12 +56,9 @@ function Admin(){
               }}
             />
           }
-          title={"Customer"}
+          title={"Private School"}
           value={123456}
         />
-      </Space>
-
-      <Space direction="horizontal">
         <DashboardCard
           icon={
             <ShoppingCartOutlined
@@ -72,7 +71,7 @@ function Admin(){
               }}
             />
           }
-          title={"Orders"}
+          title={"Total Dropouts"}
           value={123456}
         />
         <DashboardCard
@@ -87,7 +86,7 @@ function Admin(){
               }}
             />
           }
-          title={"Inventory"}
+          title={"Male Dropouts"}
           value={123456}
         />
         <DashboardCard
@@ -102,10 +101,14 @@ function Admin(){
               }}
             />
           }
-          title={"Customer"}
+          title={"Female Dropouts"}
           value={123456}
         />
       </Space>
+      <Space direction="horizontal" size={40}>
+    <RecentOrders itype="Private"/>
+    <RecentOrders itype="Government"/>
+    </Space>
     </Space>
         </>
     )
@@ -119,6 +122,44 @@ function DashboardCard({ title, value, icon }) {
         <Statistic title={title} value={value} />
       </Space>
     </Card>
+  );
+}
+
+function RecentOrders(props) {
+  const [dataSource, setDataSource] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    getOrders().then((res) => {
+      setDataSource(res.products.splice(0, 3));
+      setLoading(false);
+    });
+  }, []);
+
+  return (
+    <>
+      <Typography.Text>{props.itype} School</Typography.Text>
+      <Table style={{width: 665}}
+        columns={[
+          {
+            title: "School Name",
+            dataIndex: "title",
+          },
+          {
+            title: "Dropout",
+            dataIndex: "quantity",
+          },
+          {
+            title: "District",
+            dataIndex: "district",
+          },
+        ]}
+        loading={loading}
+        dataSource={dataSource}
+        pagination={false}
+      ></Table>
+    </>
   );
 }
 
