@@ -5,7 +5,8 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { useEffect, useState } from "react";
-import { getCustomers, getInventory, getOrders, getRevenue } from "../../API";
+import { getCustomers, getInventory, getOrders, getRevenue, salseData} from "../../API";
+import {Category, ChartComponent, ColumnSeries, Inject, LineSeries, SeriesCollectionDirective, SeriesDirective, Tooltip } from "@syncfusion/ej2-react-charts";
 function Admin(){
     return(
         <>
@@ -109,9 +110,37 @@ function Admin(){
     <RecentOrders itype="Private"/>
     <RecentOrders itype="Government"/>
     </Space>
+    <Space >
+      <Ff/>
+    </Space>
     </Space>
         </>
     )
+}
+
+function Ff(){
+  const data =[
+    { year: 2012, dropouts: 35 }, { year: 2013, dropouts: 28 },
+    { year: 2014, dropouts: 34 }, { year: 2015, dropouts: 32 },
+    { year: 2016, dropouts: 40 }, { year: 2017, dropouts: 32 },
+    { year: 2018, dropouts: 35 }, { year: 2019, dropouts: 55 },
+    { year: 2020, dropouts: 38 }, { year: 2021, dropouts: 30 },
+    { year: 2022, dropouts: 25 }, { year: 2023, dropouts: 32 }
+];
+const primaryyAxis = { labelFormat: '${value}K' };
+const primaryxAxis = { valueType: 'Category' };
+const legendSettings = { visible: true };
+const marker = { dataLabel: { visible: true } };
+return (
+  <div style={{backgroundColor:"white", borderRadius:"10px"}}>
+<ChartComponent style={{width:"89vw"}} id="charts" primaryXAxis={primaryxAxis}  title='Dropout Analysis'>
+<Inject services={[ColumnSeries, Tooltip, LineSeries, Category]}/>
+<SeriesCollectionDirective >
+  <SeriesDirective dataSource={data} xName='year' yName='dropouts' name='Dropouts'/>
+</SeriesCollectionDirective>
+</ChartComponent>
+</div>
+);
 }
 
 function DashboardCard({ title, value, icon }) {
