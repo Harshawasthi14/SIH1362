@@ -14,7 +14,7 @@ export default function Feedback(){
     }
     return(
         <form method='post' onSubmit={handleSubmit}>
-            <h1>Contact<span>Here</span></h1>
+            <h1>Feedback<span>Form</span></h1>
             <input type="text" name="name" id="" placeholder="Enter Name" value={data.name} onChange={handleChange}/>
             <input type="email" name="email" id="" placeholder="example@gmail.com" value={data.email} onChange={handleChange}/>
             <input type="phone" name="phone" id="" placeholder="+91" value={data.phone} onChange={handleChange}/>
