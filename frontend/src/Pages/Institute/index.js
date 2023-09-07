@@ -1,5 +1,6 @@
+
 export default function Institute(){
-    return(
-        <div>Institute</div>
-    )
+        return(
+            <h1>Institute</h1>
+        )
 }
