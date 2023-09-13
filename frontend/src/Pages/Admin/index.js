@@ -6,11 +6,11 @@ import {
 } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { getCustomers, getInventory, getOrders, getRevenue, salseData} from "../../API";
-import {Category, ChartComponent, ColumnSeries, Inject, LineSeries, SeriesCollectionDirective, SeriesDirective, Tooltip } from "@syncfusion/ej2-react-charts";
+import Chart from "react-apexcharts";
 function Admin(){
     return(
         <>
-   <Space size={15} direction="vertical">
+   <Space size={35} direction="vertical">
       <Typography.Title level={6}>Admin - Dashboard</Typography.Title>
       <Space direction="horizontal" size={35} block>
         <DashboardCard
@@ -106,43 +106,97 @@ function Admin(){
           value={123456}
         />
       </Space>
+      <BarChart/>
       <Space direction="horizontal" size={40}>
     <RecentOrders itype="Private"/>
     <RecentOrders itype="Government"/>
     </Space>
-    <Space >
-      <Ff/>
+    <Space direction="horizontal" size={40}>
+      <LineChart/>
+      <LineChart/>
     </Space>
     </Space>
         </>
     )
 }
 
-function Ff(){
-  const data =[
-    { year: 2012, dropouts: 35 }, { year: 2013, dropouts: 28 },
-    { year: 2014, dropouts: 34 }, { year: 2015, dropouts: 32 },
-    { year: 2016, dropouts: 40 }, { year: 2017, dropouts: 32 },
-    { year: 2018, dropouts: 35 }, { year: 2019, dropouts: 55 },
-    { year: 2020, dropouts: 38 }, { year: 2021, dropouts: 30 },
-    { year: 2022, dropouts: 25 }, { year: 2023, dropouts: 32 }
-];
-const primaryyAxis = { labelFormat: '${value}K' };
-const primaryxAxis = { valueType: 'Category' };
-const legendSettings = { visible: true };
-const marker = { dataLabel: { visible: true } };
-return (
-  <div style={{backgroundColor:"white", borderRadius:"10px"}}>
-<ChartComponent style={{width:"89vw"}} id="charts" primaryXAxis={primaryxAxis}  title='Dropout Analysis'>
-<Inject services={[ColumnSeries, Tooltip, LineSeries, Category]}/>
-<SeriesCollectionDirective >
-  <SeriesDirective dataSource={data} xName='year' yName='dropouts' name='Dropouts'/>
-</SeriesCollectionDirective>
-</ChartComponent>
-</div>
-);
+function BarChart(){
+  const[state,setState]=useState({
+    
+    colors: ['FF7D17','FF7D17'],
+    options: {
+    chart: {
+      id: "basic-bar",
+      background: '#ffffff',
+      title: {
+        text: 'Dropouts',
+        align: 'left',
+    }
+    },
+    xaxis: {
+      categories: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
+    }
+  },
+  series: [
+    {
+      name: "Government",
+      data: [3000, 4000, 4500, 5000, 4900, 6000, 7000, 9100]
+    },
+    {
+      name: "Private",
+      data: [3500, 3200, 6745, 8150, 4349, 5260, 7870, 6591]
+    }
+  ]});
+
+  return(
+    <Chart
+              options={state.options}
+              series={state.series}
+              type="bar"
+              width="1370px"
+              height="500px"
+            />
+  );
 }
 
+function LineChart(){
+  const[state,setState]=useState({
+    title: {
+      text: 'Dynamic Updating Chart',
+      align: 'left',
+      color:'#000000',
+    },
+    colors: ['FF7D17','FF7D17'],
+    options: {
+    chart: {
+      id: "basic-bar",
+      background: '#ffffff'
+    },
+    xaxis: {
+      categories: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
+    }
+  },
+  series: [
+    {
+      name: "Boys",
+      data: [3000, 4000, 4500, 5000, 4900, 6000, 7000, 9100]
+    },
+    {
+      name: "Girls",
+      data: [3500, 3200, 6745, 8150, 4349, 5260, 7870, 6591]
+    }
+  ]});
+
+  return(
+    <Chart
+              options={state.options}
+              series={state.series}
+              type="line"
+              width="665px"
+              height="500px"
+            />
+  );
+}
 function DashboardCard({ title, value, icon }) {
   return (
     <Card>
