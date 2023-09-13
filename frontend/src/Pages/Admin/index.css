@@ -5,8 +5,9 @@
     padding-left: 0;
 }
 .container{
-    border-radius: 20px;
-    background-color: black;
-    border: 5px solid plum;
+     border-radius:20px;
+     background-color: rgba(31, 41, 55, 1);
+     display:flex;
+     justify-content: center;
+     align-items: center;
 }
-

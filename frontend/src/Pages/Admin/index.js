@@ -24,14 +24,14 @@ function Admin() {
             <HeadData />
           </Space>
           <Space direction="horizontal" size={15} block>
-            <AreaChart />
-            <BarChart />
-            <Doonut />
+            <div className="container" style={{height:"400px" , width:"490px"}}><AreaChart /></div>
+            <div className="container" style={{height:"400px" , width:"450px"}}><BarChart /></div>
+            <div className="container" style={{height:"410px" , width:"400px"}}><Doonut /></div>
             </Space>
             <Space direction="horizontal" size={15}>
-            <ReasonBars />
-            <LineChart />
-            <BoardType />
+            <div className="container" style={{height:"350px" , width:"490px"}}><ReasonBars /></div>
+            <div className="container" style={{height:"350px" , width:"450px"}}><LineChart /></div>
+            <div className="container" style={{height:"350px" , width:"400px"}}><BoardType /></div>
             </Space>
           <Space direction="horizontal" size={40}>
             <RecentOrders itype="Private" />
@@ -55,9 +55,10 @@ function ReasonBars(){
     ],
     options: {
       chart: {
-        background: "#ffffff",
+        background: "rgba(31, 41, 55, 1)",
         type: 'bar',
         height: 350,
+        foreColor: '#ffffff'
       },
       plotOptions: {
         bar: {
@@ -89,7 +90,11 @@ function ReasonBars(){
       },
       title: {
         text: 'Dropers Reasons',
-        align: 'middle',
+        align: 'left',
+        style:{
+          color:"#ffffff",
+          fontSize:"20px",
+        },
       },
       xaxis: {
         categories: ['Bad Influence', 'Academic Difficulty', ' Family And Socio-Economic Needs', 'Poor Health', 'Retention', 'Disengagement', 'Transition'],
@@ -101,7 +106,7 @@ function ReasonBars(){
 
   return(
     <div id="chart">
-  <ReactApexChart options={state.options} series={state.series} type="bar" width={490} height={350} borderRadius={20}/>
+  <ReactApexChart options={state.options} series={state.series} type="bar" height="300" width="470"/>
 </div>
   )
 }
@@ -112,8 +117,9 @@ function BoardType(){
     series: [2500, 1500, 440, 550, 41],
     options: {
       chart: {
-        background: "#ffffff",
+        background: "rgba(31, 41, 55, 1)",
         type: 'pie',
+        foreColor: 'red',
       },
       labels: ["CBSE", "ICSE/ISC", "IB", "State Board", "Other"],
       theme: {
@@ -130,7 +136,11 @@ function BoardType(){
       },
       title: {
         text: "School Board",
-        align: "center",
+        align: "left",
+        style:{
+          color:"#ffffff",
+          fontSize:"20px",
+        },
       },
       dataLabels: {
         formatter(val, opts) {
@@ -144,7 +154,7 @@ function BoardType(){
     },})
   return(
     <div id="chart">
-    <ReactApexChart options={state.options} series={state.series} type="pie" width={400}/>
+    <ReactApexChart options={state.options} series={state.series} type="pie" width={380}/>
   </div>
   )
 }
@@ -156,7 +166,7 @@ function Doonut() {
       series: [4400, 1200, 800, 500, 300],
       options: {
         chart: {
-          background: "#ffffff",
+          background: "rgba(31, 41, 55, 1)",
           width: 400,
           type: 'donut',
           dropShadow: {
@@ -209,6 +219,10 @@ function Doonut() {
         },
         title: {
           text: "Caste Wise Dropouts",
+          style:{
+            color:"#ffffff",
+            fontSize:"20px",
+          },
         },
         legend: {
           position: 'bottom'
@@ -229,7 +243,7 @@ function Doonut() {
 
   return (
     <div id="chart">
-    <ReactApexChart options={state.options} series={state.series} type="donut" width={400} height={410} />
+    <ReactApexChart options={state.options} series={state.series} type="donut" width={400} height={390} />
   </div>
   );
 }
@@ -279,7 +293,7 @@ function AreaChart() {
       chart: {
         margin: 10,
         borderRadius: 8,
-        background: "#ffffff",
+        background: "rgba(31, 41, 55, 1)",
         type: "area",
         stacked: false,
         height: 400,
@@ -301,6 +315,10 @@ function AreaChart() {
       title: {
         text: "Dropouts",
         align: "left",
+        style:{
+          color:"#ffffff",
+          fontSize:"20px",
+        },
       },
       fill: {
         type: "gradient",
@@ -342,8 +360,8 @@ function AreaChart() {
         options={state.options}
         series={state.series}
         type="area"
-        height={400}
-        width={490}
+        height={350}
+        width={482}
       />
     </div>
   );
@@ -355,10 +373,14 @@ function BarChart() {
     options: {
       chart: {
         id: "basic-bar",
-        background: "#ffffff",
+        background: "rgba(31, 41, 55, 1)",
       },
       title: {
         text: "School Type Dropouts",
+        style:{
+          color:"#ffffff",
+          fontSize:"20px",
+        },
       },
       xaxis: {
         categories: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
@@ -381,8 +403,8 @@ function BarChart() {
       options={state.options}
       series={state.series}
       type="bar"
-      width="450px"
-      height="400px"
+      width="400px"
+      height="350px"
     />
   );
 }
@@ -392,13 +414,15 @@ function LineChart() {
     title: {
       text: "Dynamic Updating Chart",
       align: "left",
-      color: "#000000",
+      style:{
+        color:"#ffffff"
+      },
     },
     colors: ["FF7D17", "FF7D17"],
     options: {
       chart: {
         id: "basic-bar",
-        background: "#ffffff",
+        background: "rgba(31, 41, 55, 1)",
       },
       xaxis: {
         categories: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
@@ -421,8 +445,8 @@ function LineChart() {
       options={state.options}
       series={state.series}
       type="line"
-      width="450px"
-      height="350px"
+      width="430px"
+      height="312px"
     />
   );
 }
