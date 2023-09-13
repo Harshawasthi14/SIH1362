@@ -4,9 +4,11 @@
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+    background-color: rgb(244, 237, 246);
 }
 
 .AppHeader{
+    background-color: white;
     height: 70px;
     display: flex;
     justify-content: space-between;

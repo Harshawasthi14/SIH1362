@@ -1,0 +1,12 @@
+.admin{
+    padding-top: 15px;
+    margin-left:  0;
+    width: 100vw;
+    padding-left: 0;
+}
+.container{
+    border-radius: 20px;
+    background-color: black;
+    border: 5px solid plum;
+}
+

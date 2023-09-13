@@ -17,7 +17,7 @@ function SideMenu(){
   }, [location.pathname]);
 
   const navigate = useNavigate();
-  const styleoption = {height:"100px", display:"flex", flexDirection:"column", justifyContent:"center",alignItems:"center",padding:"10px"}
+  const styleoption = {height:"100px", display:"flex", flexDirection:"column", justifyContent:"center",alignItems:"center",padding:"10px" ,position:"sticky", left:"0", top:"0", backgroundColor:"white", zIndex:"1"}
     return(
         <div className="SideMenu">
           
