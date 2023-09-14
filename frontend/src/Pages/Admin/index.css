@@ -14,3 +14,18 @@
 .apexcharts-legend-text{
     color:white;
 }
+
+.ant-statistic-title{
+    color:white !important;
+}
+.stats .ant-statistic-content-value-int{
+    color:rgba(139, 92, 246, 1) !important;
+}
+
+tspan{
+    color:white !important;
+}
+
+th .ant-table-cell  {
+    background-color: rgba(31, 41, 55, 1) !important;
+}
