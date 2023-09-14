@@ -190,7 +190,7 @@ function Doonut() {
                 show: true,
                 total: {
                   showAlways: true,
-                  show: true
+                  show: true,
                 }
               }
             }
@@ -204,7 +204,7 @@ function Doonut() {
           }
         },
         fill: {
-        type: 'pattern',
+        type: 'solid',
           opacity: 1,
           pattern: {
             enabled: true,
@@ -217,7 +217,7 @@ function Doonut() {
           }
         },
         theme: {
-          palette: 'palette2'
+          palette: 'palette10'
         },
         title: {
           text: "Caste Wise Dropouts",
@@ -350,6 +350,11 @@ function AreaChart() {
       xaxis: {
         type: "datetime",
       },
+      legend: {
+        labels: {
+          colors: '#ffffff',
+      },
+    },
       tooltip: {
         shared: false,
         y: {
@@ -404,8 +409,8 @@ function BarChart() {
       },
     ],
     legend: {
-      labels: {
-        colors: '#ffffff',
+      labels:{
+        colors:['#ffffff','#ffffff','#ffffff']
     },
     }
   });
@@ -464,10 +469,10 @@ function LineChart() {
 }
 function DashboardCard({ title, value, icon }) {
   return (
-    <Card>
+    <Card style={{ width: 433, backgroundColor: "rgba(31, 41, 55, 1)" }}>
       <Space direction="horizontal">
         {icon}
-        <Statistic title={title} value={value} />
+        <Statistic className="stats" title={title} value={value} />
       </Space>
     </Card>
   );
@@ -516,17 +521,17 @@ function RecentOrders(props) {
 function HeadData() {
   return (
     <>
+    <Space direction="vertical">
       <Space direction="horizontal" size={35} block>
         <DashboardCard
           icon={
             <ShoppingCartOutlined
-              style={{
-                color: "green",
-                backgroundColor: "rgba(0,255,0,0.25)",
-                borderRadius: 20,
-                fontSize: 24,
-                padding: 8,
-              }}
+            style={{
+              color: "rgba(196, 181, 253, 1)",
+              borderRadius: 20,
+              fontSize: 50,
+              padding: 8,
+            }}
             />
           }
           title={"School Registered"}
@@ -536,13 +541,12 @@ function HeadData() {
           size={100}
           icon={
             <ShoppingOutlined
-              style={{
-                color: "blue",
-                backgroundColor: "rgba(0,0,255,0.25)",
-                borderRadius: 20,
-                fontSize: 24,
-                padding: 8,
-              }}
+            style={{
+              color: "rgba(196, 181, 253, 1)",
+              borderRadius: 20,
+              fontSize: 50,
+              padding: 8,
+            }}
             />
           }
           title={"Government School"}
@@ -551,28 +555,28 @@ function HeadData() {
         <DashboardCard
           icon={
             <UserOutlined
-              style={{
-                color: "purple",
-                backgroundColor: "rgba(0,255,255,0.25)",
-                borderRadius: 20,
-                fontSize: 24,
-                padding: 8,
-              }}
+            style={{
+              color: "rgba(196, 181, 253, 1)",
+              borderRadius: 20,
+              fontSize: 50,
+              padding: 8,
+            }}
             />
           }
           title={"Private School"}
           value={123456}
         />
+        </Space>
+        <Space direction="horizontal" size={35} block>
         <DashboardCard
           icon={
             <ShoppingCartOutlined
-              style={{
-                color: "green",
-                backgroundColor: "rgba(0,255,0,0.25)",
-                borderRadius: 20,
-                fontSize: 24,
-                padding: 8,
-              }}
+            style={{
+              color: "rgba(196, 181, 253, 1)",
+              borderRadius: 20,
+              fontSize: 50,
+              padding: 8,
+            }}
             />
           }
           backgroundColor="rgba(31, 41, 55, 1)"
@@ -582,13 +586,12 @@ function HeadData() {
         <DashboardCard
           icon={
             <ShoppingOutlined
-              style={{
-                color: "blue",
-                backgroundColor: "rgba(0,0,255,0.25)",
-                borderRadius: 20,
-                fontSize: 24,
-                padding: 8,
-              }}
+            style={{
+              color: "rgba(196, 181, 253, 1)",
+              borderRadius: 20,
+              fontSize: 50,
+              padding: 8,
+            }}
             />
           }
           title={"Male Dropouts"}
@@ -597,18 +600,18 @@ function HeadData() {
         <DashboardCard
           icon={
             <UserOutlined
-              style={{
-                color: "purple",
-                backgroundColor: "rgba(0,255,255,0.25)",
-                borderRadius: 20,
-                fontSize: 24,
-                padding: 8,
-              }}
+            style={{
+              color: "rgba(196, 181, 253, 1)",
+              borderRadius: 20,
+              fontSize: 50,
+              padding: 8,
+            }}
             />
           }
           title={"Female Dropouts"}
           value={123456}
         />
+      </Space>
       </Space>
     </>
   );

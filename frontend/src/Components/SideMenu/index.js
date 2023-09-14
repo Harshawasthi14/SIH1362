@@ -1,4 +1,5 @@
 import { Menu } from "antd";
+import "./index.css";
 import {
   HomeOutlined,
   ShopOutlined,
