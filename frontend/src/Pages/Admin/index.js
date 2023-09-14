@@ -119,7 +119,6 @@ function BoardType(){
       chart: {
         background: "rgba(31, 41, 55, 1)",
         type: 'pie',
-        foreColor: 'red',
       },
       labels: ["CBSE", "ICSE/ISC", "IB", "State Board", "Other"],
       theme: {
@@ -149,7 +148,10 @@ function BoardType(){
         }
       },
       legend: {
-        show: false
+        show: false,
+        labels: {
+          colors: '#ffffff',
+      },
       }
     },})
   return(
@@ -225,7 +227,12 @@ function Doonut() {
           },
         },
         legend: {
-          position: 'bottom'
+          position: 'bottom',
+          
+            labels: {
+              colors: '#ffffff',
+          },
+      
         },
         responsive: [{
           breakpoint: 480,
@@ -396,6 +403,11 @@ function BarChart() {
         data: [3500, 3200, 6745, 8150, 4349, 5260, 7870, 6591],
       },
     ],
+    legend: {
+      labels: {
+        colors: '#ffffff',
+    },
+    }
   });
 
   return (
@@ -477,6 +489,7 @@ function RecentOrders(props) {
     <>
       <Typography.Text>{props.itype} School</Typography.Text>
       <Table
+      headerColor="#ffffff"
         style={{ width: 665 }}
         columns={[
           {
@@ -562,6 +575,7 @@ function HeadData() {
               }}
             />
           }
+          backgroundColor="rgba(31, 41, 55, 1)"
           title={"Total Dropouts"}
           value={123456}
         />
