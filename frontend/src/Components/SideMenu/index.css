@@ -1,0 +1,7 @@
+li .ant-menu-item :hover{
+    background-color:rgba(139, 92, 246, 1) !important;
+}
+.ant-menu-item-selected{
+    color:rgba(139, 92, 246, 1) !important;
+    background-color: white !important;
+}
