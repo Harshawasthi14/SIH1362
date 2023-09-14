@@ -1,6 +1,7 @@
 import { Image , Typography, Space, Badge} from "antd";
 import { FacebookOutlined, MailOutlined,InstagramOutlined } from "@ant-design/icons";
-import logo from "./logo.png"
+import logo from "./logo.png";
+import "./index.css";
 function AppHeader(){
     return(
         <div className="AppHeader">

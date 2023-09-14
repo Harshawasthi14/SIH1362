@@ -19,6 +19,7 @@ function Admin() {
   return (
     <>
       <div className="admin">
+        <div className="line"><span>Admin Dashboard</span></div>
         <Space size={15} direction="vertical">
           <Space direction="horizontal" size={35} block>
             <HeadData />

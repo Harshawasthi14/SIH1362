@@ -14,7 +14,11 @@ const DropoutPolicy = () => {
     //   {width:1200 ,itemsToShow:4},
     // ];
   return (
-    <div className="dropout-policy">
+    <div  style={{ marginTop: 15 }}>
+      <div className="line">
+        <span>Policy</span>
+      </div>
+      <div className="dropout-policy">
       <h1>Education Projects and Initatives</h1>
       {/* <Carousel breakPoints={breakPoints} >
         <Card number="1"/>
@@ -61,6 +65,7 @@ const DropoutPolicy = () => {
       
       <section id="drop"><button onClick={handleDropout}>Dropout-Analysis</button></section>
       
+    </div>
     </div>
   );
 };

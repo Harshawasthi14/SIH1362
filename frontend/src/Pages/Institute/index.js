@@ -21,6 +21,7 @@ import './index.css';
 export default function Institute() {
   return (
     <div className="institute" style={{ marginTop: 15 }}>
+      <div className="line"><span>Institute Dashboard</span></div>
       <Space direction="vertical" size={20}>
         <HeadData />
         <Space direction="horizontal" size={15} block>
