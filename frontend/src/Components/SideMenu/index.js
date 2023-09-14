@@ -46,8 +46,8 @@ function SideMenu(){
           },
           {
             style:styleoption,
-            label: "Scheme",
-            key: "/scheme",
+            label: "Policy",
+            key: "/policy",
             icon: <ReadOutlined style={{fontSize:40}}/>,
           },
           {
