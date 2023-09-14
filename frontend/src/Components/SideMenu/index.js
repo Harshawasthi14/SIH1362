@@ -1,9 +1,11 @@
 import { Menu } from "antd";
 import {
-  AppstoreOutlined,
+  HomeOutlined,
   ShopOutlined,
-  ShoppingCartOutlined,
+  ReadOutlined,
   UserOutlined,
+  BankOutlined,
+  MessageOutlined,
 } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -17,7 +19,7 @@ function SideMenu(){
   }, [location.pathname]);
 
   const navigate = useNavigate();
-  const styleoption = {height:"100px", display:"flex", flexDirection:"column", justifyContent:"center",alignItems:"center",padding:"10px" ,position:"sticky", left:"0", top:"0", backgroundColor:"white", zIndex:"1"}
+  const styleoption = {height:"100px", display:"flex", flexDirection:"column", justifyContent:"center",alignItems:"center",padding:"10px"}
     return(
         <div className="SideMenu">
           
@@ -32,39 +34,39 @@ function SideMenu(){
         items={[
           {
             style:styleoption,
-            label: "Overview",
-            icon: <AppstoreOutlined style={{fontSize:50}}/>,
+            label: "Home",
+            icon: <HomeOutlined style={{fontSize:40}}/>,
             key: "/",
           },
           {
             style:styleoption,
             label: "Dropout",
             key: "/dropout",
-            icon: <ShopOutlined style={{fontSize:30}}/>,
+            icon: <ShopOutlined style={{fontSize:40}}/>,
           },
           {
             style:styleoption,
-            label: "Policy",
-            key: "/policy",
-            icon: <ShoppingCartOutlined style={{fontSize:30}}/>,
+            label: "Scheme",
+            key: "/scheme",
+            icon: <ReadOutlined style={{fontSize:40}}/>,
           },
           {
             style:styleoption,
             label: "Institute",
             key: "/institute",
-            icon: <UserOutlined style={{fontSize:30}}/>,
+            icon: <BankOutlined style={{fontSize:40}}/>,
           },
           {
             style:styleoption,
             label: "Admin",
             key: "/admin",
-            icon: <UserOutlined style={{fontSize:30}}/>,
+            icon: <UserOutlined style={{fontSize:40}}/>,
           },
           {
             style:styleoption,
             label: "Feedback",
             key: "/feedback",
-            icon: <UserOutlined style={{fontSize:30}}/>,
+            icon: <MessageOutlined style={{fontSize:40}}/>,
           },
         ]}
       ></Menu>
