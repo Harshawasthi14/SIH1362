@@ -1,0 +1,21 @@
+.info1{
+  
+    display: flex;
+    align-content: normal;
+}
+.info2{
+    margin-left: 145px;
+    display: flex;
+    align-content: normal;
+}
+
+.info3{
+    margin-left: 145px;
+    display: flex;
+    align-content: normal;
+}
+
+.info{
+    
+    display: flex;
+}
