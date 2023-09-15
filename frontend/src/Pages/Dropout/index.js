@@ -14,12 +14,10 @@ export default function Dropout() {
   return ( 
   
     <div className="dropout" style={{ marginTop: 2 }}>
-     <h2>Dropout Information</h2>
-    <div className="line"></div>
+    <div className="line"><span>Dropout Dashboard</span></div>
     <Space direction="vertical" size={20}>
       <FirstLine />
       <SecondLine/>
-     
       <DropdownList />
     </Space>
   </div>
@@ -29,7 +27,7 @@ export default function Dropout() {
 function FirstLine() {
   return (
     <>
-      <Space direction="horizontal" size={90} block>
+      <Space direction="horizontal" size={35} block>
         <DashboardCard
             icon={
               <BankOutlined
@@ -80,7 +78,7 @@ function FirstLine() {
 function SecondLine() {
   return (
     <>
-      <Space direction="horizontal" size={90} block>
+      <Space direction="horizontal" size={35} block>
         <DashboardCard
             icon={
               <UserDeleteOutlined
@@ -186,12 +184,12 @@ function DropdownList() {
 }
 function DashboardCard({ title, value, icon }) {
   return (
-    <Card style={{ width: 322, backgroundColor: "rgba(31, 41, 55, 1)" }}>
+    <Card style={{ width: 433, backgroundColor: "rgba(31, 41, 55, 1)" }}>
       <Space direction="horizontal">
         {icon}
         <Statistic
-         className="stats"
-            style={{ color: "white" }}
+          className="stats"
+          style={{ color: "white" }}
           title={title}
           value={value}
         />
