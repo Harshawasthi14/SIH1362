@@ -13,7 +13,7 @@ const { Option } = Select;
 export default function Dropout() {
   return ( 
   
-    <div className="dropout" style={{ marginTop: 2 }}>
+    <div className="dropout" style={{ paddingTop:'15px'}}>
     <div className="line"><span>Dropout Dashboard</span></div>
     <Space direction="vertical" size={20}>
       <FirstLine />
