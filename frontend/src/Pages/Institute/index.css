@@ -22,3 +22,37 @@
     position: relative;
     left:50px;
 }
+
+.ant-divider{
+    color: rgb(182, 179, 179) !important;
+    border-block-start: rgb(182, 179, 179) !important;
+}
+
+.dropoutForm{
+    width:1000px;
+    height:600px;
+    border: 2px solid rgba(31, 41, 55, 1);
+    background-color: rgba(31, 41, 55, 1);
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);
+    position:relative;
+    left:200px;
+    padding: 24px 16px;
+}
+
+.ant-form{
+    border-radius: 15px;
+    padding: 24px 16px;
+    background-color: #eee;
+    margin: 0 auto;
+    position: relative;
+    top: 50px;
+}
+
+form button{
+    color: white !important;
+}
+
+.ant-steps-item-title{
+    color: white !important;
+}
