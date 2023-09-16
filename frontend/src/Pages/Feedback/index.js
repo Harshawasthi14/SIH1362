@@ -7,6 +7,7 @@ export default function Feedback() {
     email: "",
     phone: "",
     message: "",
+    adhar: "",
   });
   const handleChange = (e) => {
     const name = e.target.name;
@@ -27,8 +28,9 @@ export default function Feedback() {
             <input type="text" name="name" id="" placeholder="Enter Name" value={data.name} onChange={handleChange}/>
             <input type="email" name="email" id="" placeholder="example@gmail.com" value={data.email} onChange={handleChange}/>
             <input type="phone" name="phone" id="" placeholder="+91" value={data.phone} onChange={handleChange}/>
+            <input type="number" name="adharnumber" id="" placeholder="Adhar Number" value={data.adhar} onChange={handleChange}/>
             <textarea name="message" id="" cols="30" rows="10" placeholder="Type here..." value={data.message} onChange={handleChange}/>
-            <button type="submit">Submit</button>
+            <button type="submit" style={{display:'flex', alignItems:'center', justifyContent:'center',margin:'0 auto', width:'100px'}}>Submit</button>
         </form>
     </div>
   );

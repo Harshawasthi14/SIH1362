@@ -41,7 +41,7 @@ export default function Institute() {
             <YearDropouts />
           </div>
         </Space>
-        <Divider plain>Dropouts Data</Divider>
+        <Divider style={{fontSize:'15px'}} plain>Institute Dropout Form</Divider>
         <div className="dropoutForm">
           <DropoutForm />
         </div>

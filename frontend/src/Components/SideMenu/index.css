@@ -5,4 +5,11 @@ li .ant-menu-item :hover{
     color:rgba(139, 92, 246, 1) !important;
     background-color: white !important;
 }
-
+.ant-menu, Menu{
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2) !important;
+    position:fixed;
+    z-index: 100;
+    left:0;
+    top:10;
+    width: 90px !important;
+}
