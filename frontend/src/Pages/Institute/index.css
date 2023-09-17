@@ -30,7 +30,7 @@
 
 .dropoutForm{
     width:1000px;
-    height:600px;
+    min-height:750px;
     border: 2px solid rgba(31, 41, 55, 1);
     background-color: rgba(31, 41, 55, 1);
     border-radius: 15px;
@@ -38,6 +38,7 @@
     position:relative;
     left:200px;
     padding: 24px 16px;
+    overflow-y: hidden;
 }
 
 .ant-form{

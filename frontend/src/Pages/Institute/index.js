@@ -234,7 +234,7 @@ function PersonalDetails({onFinish, initialValues}) {
         name={"caste"}
       >
         <Select
-          defaultValue="General"
+          defaultValue="Select Caste"
           style={{
             width: 200,
           }}
@@ -261,6 +261,160 @@ function PersonalDetails({onFinish, initialValues}) {
                 {
                   label: "ST",
                   value: "st",
+                },
+              ],
+            },
+          ]}
+        />
+      </Form.Item>
+      <Form.Item
+        label="Reason fror Drop"
+        name={"reason"}
+      >
+        <Select
+          defaultValue="Select Reason"
+          style={{
+            width: 400,
+          }}
+          options={[
+            {
+              label: "Reason",
+              options: [
+                {
+                  label: "Bad Influence",
+                  value: "1",
+                },
+                {
+                  label: "Academic Difficulty",
+                  value: "2",
+                },
+                {
+                  label: "Family and Socio-Economic Needs",
+                  value: "3",
+                },
+                {
+                  label: "Poor Health",
+                  value: "4",
+                },
+                {
+                  label: "Retention",
+                  value: "5",
+                },
+                {
+                  label: "Disengagement",
+                  value: "6",
+                },
+                {
+                  label: "Transition",
+                  value: "6",
+                },
+                {
+                  label: "Other",
+                  value: "7",
+                },
+              ],
+            },
+          ]}
+        />
+      </Form.Item>
+      <Form.Item
+        label="School Board"
+        name={"board"}
+      >
+        <Select
+          defaultValue="Select Board"
+          style={{
+            width: 300,
+          }}
+          options={[
+            {
+              label: "Reason",
+              options: [
+                {
+                  label: "State Board",
+                  value: "1",
+                },
+                {
+                  label: "IB",
+                  value: "2",
+                },
+                {
+                  label: "CBSE",
+                  value: "3",
+                },
+                {
+                  label: "ICSE/ISC",
+                  value: "4",
+                },
+                {
+                  label: "other",
+                  value: "5",
+                },
+              ],
+            },
+          ]}
+        />
+      </Form.Item>
+      <Form.Item
+        label="District"
+        name={"district"}
+      >
+        <Select
+          defaultValue="Select District"
+          style={{
+            width: 300,
+          }}
+          options={[
+            {
+              label: "District",
+              options: [
+                {
+                  label: "	Ahmedabad",
+                  value: "	Ahmedabad",
+                },
+                {
+                  label: "Amreli",
+                  value: "Amreli",
+                },
+                {
+                  label: "Anand",
+                  value: "Anand",
+                },
+                {
+                  label: "Aravalli",
+                  value: "Aravalli",
+                },
+                {
+                  label: "Banaskantha",
+                  value: "Banaskantha",
+                },
+                {
+                  label: "Bharuch",
+                  value: "Bharuch",
+                },
+                {
+                  label: "Bhavnagar",
+                  value: "Bhavnagar",
+                },
+                {
+                  label: "Botad",
+                  value: "Botad",
+                },
+                {
+                  label: "Chhota Udaipur",
+                  value: "Chhota Udaipur",
+                },
+                {
+                  label: "Dahod",
+                  value: "Dahod",
+                },
+                {
+                  label: "Banaskantha",
+                  value: "Banaskantha",
+                },
+                {
+                  label: "Banaskantha",
+                  value: "Banaskantha",
                 },
               ],
             },
