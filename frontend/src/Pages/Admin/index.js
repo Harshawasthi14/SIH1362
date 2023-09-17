@@ -15,7 +15,20 @@ import {
 import Chart from "react-apexcharts";
 import ReactApexChart from "react-apexcharts";
 import "./index.css";
+import SignIn from "../../Components/LogIn";
+
 function Admin() {
+  const [current, setCurrent] = useState(0);
+  const form=[
+    <SignIn setCurrent={setCurrent} title={'Admin LogIn'}/>,
+    <AdminDashboard/>,
+  ]
+  return (<>
+    {form[current]}
+  </>
+  );
+}
+function AdminDashboard() {
   return (
     <>
       <div className="admin">

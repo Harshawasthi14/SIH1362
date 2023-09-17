@@ -3,14 +3,16 @@ import "./index.css";
 import { useState } from "react";
 import { redirect } from "react-router-dom";
 function SignIn(props) {
+    
     const login = () => {
         message.success("Login Successful");
+        props.setCurrent(1);
     }
 
   return (
     <div className="signinbg">
-      <Form className="LoginForm" status={auth}>
-        <Typography.Title>Sign-in</Typography.Title>
+      <Form className="LoginForm">
+        <Typography.Title>{props.title}</Typography.Title>
         <Form.Item
           label="Email"
           name={"myEmail"}

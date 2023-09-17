@@ -16,9 +16,22 @@ import {
   CheckCircleFilled,
   UploadOutlined,
 } from "@ant-design/icons";
-
+import { Login } from "@mui/icons-material";
+import SignIn from "../../Components/LogIn/index.js";
 export default function Institute() {
-  return (
+  const [current, setCurrent] = useState(0);
+  const form=[
+    <SignIn setCurrent={setCurrent} title={'Institute LogIn'}/>,
+    <InstituteDashboard/>,
+  ]
+  return (<>
+    {form[current]}
+  </>
+  );
+}
+
+function InstituteDashboard() {
+  return(
     <div className="institute" style={{ marginTop: 15 }}>
       <div className="line">
         <span>Institute Dashboard</span>
@@ -47,7 +60,7 @@ export default function Institute() {
         </div>
       </Space>
     </div>
-  );
+  )
 }
 
 function DropoutForm() {
