@@ -42,3 +42,12 @@ tspan{
     position: relative;
     left:50px;
 }
+.ant-table{
+    border: 2px solid rgba(31, 41, 55, 1);
+    box-shadow: 2px 2px 2px rgba(31, 41, 55, 1);
+}
+.ant-table-thead .ant-table-cell{
+    color: white !important;
+    background-color: rgba(31, 41, 55, 1) !important;
+}
+    
