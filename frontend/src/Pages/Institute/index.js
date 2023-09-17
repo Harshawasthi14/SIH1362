@@ -234,7 +234,7 @@ function PersonalDetails({onFinish, initialValues}) {
         name={"caste"}
       >
         <Select
-          defaultValue="Select Caste"
+          initialValues="Select Caste"
           style={{
             width: 200,
           }}
@@ -272,7 +272,7 @@ function PersonalDetails({onFinish, initialValues}) {
         name={"reason"}
       >
         <Select
-          defaultValue="Select Reason"
+          initialValues="Select Reason"
           style={{
             width: 400,
           }}
@@ -322,7 +322,7 @@ function PersonalDetails({onFinish, initialValues}) {
         name={"board"}
       >
         <Select
-          defaultValue="Select Board"
+          initialValues="Select Board"
           style={{
             width: 300,
           }}
@@ -360,7 +360,7 @@ function PersonalDetails({onFinish, initialValues}) {
         name={"district"}
       >
         <Select
-          defaultValue="Select District"
+          initialValues="Select District"
           style={{
             width: 300,
           }}

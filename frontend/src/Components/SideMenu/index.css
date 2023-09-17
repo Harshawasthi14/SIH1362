@@ -12,5 +12,5 @@ li .ant-menu-item :hover{
     left:0;
     top:10;
     width: 90px !important;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
