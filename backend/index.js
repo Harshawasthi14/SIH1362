@@ -9,8 +9,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://ToshikaRaikwar:HwaXjFbxf3PZRQfU@atlascluster.qnbhuxa.mongodb.net/your-database-name', {
-  useNewUrlParser: true,
+mongoose.connect('') 
   useUnifiedTopology: true,
 });
 const db = mongoose.connection;
