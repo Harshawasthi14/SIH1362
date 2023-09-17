@@ -1,34 +1,121 @@
 import React, { useState } from "react";
 import "./index.css";
-// import Carousel from 'react-elastic-carousel';
-// import Card from './Card';
+import { Card,Space } from 'antd';
+const { Meta } = Card;
 const DropoutPolicy = () => {
   const [isDropout, setIsDropout] = useState(false);
   const handleDropout = () => {
     setIsDropout(true);
+
   };
-    // const breakPoints=[
-    //   {width:1 ,itemsToShow:1},
-    //   {width:500 ,itemsToShow:2},
-    //   {width:768 ,itemsToShow:3},
-    //   {width:1200 ,itemsToShow:4},
-    // ];
+  
+
   return (
     <div  style={{ marginTop: 15 }}>
       <div className="line">
         <span>Policy</span>
       </div>
       <div className="dropout-policy">
+        <Space direction="vertical" size={40}> 
       <h1>Education Projects and Initatives</h1>
-      {/* <Carousel breakPoints={breakPoints} >
-        <Card number="1"/>
-        <Card number="2"/>
-        <Card number="3"/>
-        <Card number="4"/>
-        <Card number="5"/>
-        <Card number="6"/>
-        <Card number="7"/>
-      </Carousel> */}
+      
+      <section className="Card">
+        <Space direction="horizontal" size={60}> 
+        <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://digitallearning.eletsonline.com/wp-content/uploads/2020/04/Gujarat-govt.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://resize.indiatvnews.com/en/resize/oldbucket/730_-/mainnational/IndiaTv2c1a35_gujaratschool.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    </Space>
+    </section>
+    <section className="Card">
+        <Space direction="horizontal" size={60}> 
+        <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    </Space>
+    </section>
+    <section className="Card">
+        <Space direction="horizontal" size={60}> 
+        <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://gujaratindia.gov.in/images/education-initative.jpg" />}
+    >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+    </Card>
+    </Space>
+    </section>
+    <div>
       <p>
       ‘Smart Goals’ with a future vision 'Education for All' is a major Project of the Education Department with its Continuous Education and Literacy Policies geared to promote Literacy, reduce drop out rates, Focus on Girl Education, Teachers’ Training and a series of other Initiatives being implemented.
       </p>
@@ -64,7 +151,8 @@ const DropoutPolicy = () => {
       </section>
       
       <section id="drop"><button onClick={handleDropout}>Dropout-Analysis</button></section>
-      
+      </div>
+      </Space>  
     </div>
     </div>
   );

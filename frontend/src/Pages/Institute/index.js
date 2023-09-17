@@ -16,7 +16,6 @@ import {
   CheckCircleFilled,
   UploadOutlined,
 } from "@ant-design/icons";
-import { Login } from "@mui/icons-material";
 import SignIn from "../../Components/LogIn/index.js";
 export default function Institute() {
   const [current, setCurrent] = useState(0);
