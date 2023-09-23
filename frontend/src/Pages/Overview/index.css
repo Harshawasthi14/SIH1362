@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-image: url('./main-banner.jpg');
+    background-image: url('./important.png');
 }
 body
 {
@@ -16,7 +16,6 @@ body
     flex-direction: column;
     align-content: center;
     position: relative;
-    background-image: url('./main-banner.jpg');
 }
 .background ul{
     display: flex;
