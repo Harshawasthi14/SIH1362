@@ -9,7 +9,16 @@ import {
 import { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 import "./index.css";
-import { Divider, Steps, Form, Input, Button, Radio, Select, Upload} from "antd";
+import {
+  Divider,
+  Steps,
+  Form,
+  Input,
+  Button,
+  Radio,
+  Select,
+  Upload,
+} from "antd";
 import {
   ProfileFilled,
   FileTextFilled,
@@ -19,18 +28,15 @@ import {
 import SignIn from "../../Components/LogIn/index.js";
 export default function Institute() {
   const [current, setCurrent] = useState(0);
-  const form=[
-    <SignIn setCurrent={setCurrent} title={'Institute LogIn'}/>,
-    <InstituteDashboard/>,
-  ]
-  return (<>
-    {form[current]}
-  </>
-  );
+  const form = [
+    <SignIn setCurrent={setCurrent} title={"Institute LogIn"} />,
+    <InstituteDashboard />,
+  ];
+  return <>{form[current]}</>;
 }
 
 function InstituteDashboard() {
-  return(
+  return (
     <div className="institute" style={{ marginTop: 15 }}>
       <div className="line">
         <span>Institute Dashboard</span>
@@ -53,13 +59,75 @@ function InstituteDashboard() {
             <YearDropouts />
           </div>
         </Space>
-        <Divider style={{fontSize:'15px'}} plain>Institute Dropout Form</Divider>
+        <Divider style={{ fontSize: "15px" }} plain>
+          Institute Dropout Data
+        </Divider>
         <div className="dropoutForm">
+          <FileUpload/>
+          <Divider style={{ fontSize: "15px" }} plain>
+          OR
+        </Divider>
           <DropoutForm />
         </div>
       </Space>
     </div>
-  )
+  );
+}
+
+function FileUpload() {
+  const [excelFile, setExcelFile] = useState(null);
+  const [typeError, setTypeError] = useState(null);
+
+  // submit state
+  const [excelData, setExcelData] = useState(null);
+
+  // onchange event
+  const handleFile=(e)=>{
+    let fileTypes = ['application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','text/csv'];
+    let selectedFile = e.target.files[0];
+    if(selectedFile){
+      if(selectedFile&&fileTypes.includes(selectedFile.type)){
+        setTypeError(null);
+        let reader = new FileReader();
+        reader.readAsArrayBuffer(selectedFile);
+        reader.onload=(e)=>{
+          setExcelFile(e.target.result);
+        }
+      }
+      else{
+        setTypeError('Please select only excel file types');
+        setExcelFile(null);
+      }
+    }
+    else{
+      console.log('Please select your file');
+    }
+  }
+  
+  // submit event
+  const handleFileSubmit=(e)=>{
+    e.preventDefault();
+    if(excelFile!==null){
+      const workbook = XLSX.read(excelFile,{type: 'buffer'});
+      const worksheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[worksheetName];
+      const data = XLSX.utils.sheet_to_json(worksheet);
+      setExcelData(data.slice(0,10));
+    }
+  }
+
+  return(
+     <div className="upload">
+    <form className="form-group custom-form" onSubmit={handleFileSubmit}>
+    <h2>Upload Excel File</h2>
+        <input type="file" required onChange={handleFile} />
+        <button type="submit" >UPLOAD</button>
+        {typeError&&(
+          <div className="alert alert-danger" role="alert">{typeError}</div>
+        )}
+      </form>
+  </div>
+  );
 }
 
 function DropoutForm() {
@@ -78,18 +146,24 @@ function DropoutForm() {
     setCurrent(0);
   };
   const forms = [
-    <PersonalDetails onFinish={onFinishLoginForm} initialValues={loginDetails}/>,
-    <Document onFinish={onFinishDocumentUpload} initialValues={documentUpload}/>,
-    <Finish onFinish={onFinish}/>,
+    <PersonalDetails
+      onFinish={onFinishLoginForm}
+      initialValues={loginDetails}
+    />,
+    <Document
+      onFinish={onFinishDocumentUpload}
+      initialValues={documentUpload}
+    />,
+    <Finish onFinish={onFinish} />,
   ];
   const isStepDisabled = (step) => {
-    if (step === 0 ) {
+    if (step === 0) {
       return false;
     }
-    if (step === 1 ) {
+    if (step === 1) {
       return loginDetails === null;
     }
-    if (step === 2 ) {
+    if (step === 2) {
       return documentUpload === null || loginDetails === null;
     }
   };
@@ -100,25 +174,49 @@ function DropoutForm() {
         onChange={setCurrent}
         current={current}
       >
-        <Steps.Step disabled={isStepDisabled(0)}title="Student Detail" icon={<ProfileFilled style={{color:'white' ,fontSize:'35px'}}/>} />
-        <Steps.Step disabled={isStepDisabled(1)} title="Document upload" icon={<FileTextFilled style={{color:'white' ,fontSize:'35px'}}/>} />
-        <Steps.Step disabled={isStepDisabled(2)} title="Finish" icon={<CheckCircleFilled style={{color:'white' ,fontSize:'35px'}}/>} />
+        <Steps.Step
+          disabled={isStepDisabled(0)}
+          title="Student Detail"
+          icon={<ProfileFilled style={{ color: "white", fontSize: "35px" }} />}
+        />
+        <Steps.Step
+          disabled={isStepDisabled(1)}
+          title="Document upload"
+          icon={<FileTextFilled style={{ color: "white", fontSize: "35px" }} />}
+        />
+        <Steps.Step
+          disabled={isStepDisabled(2)}
+          title="Finish"
+          icon={
+            <CheckCircleFilled style={{ color: "white", fontSize: "35px" }} />
+          }
+        />
       </Steps>
       {forms[current]}
     </>
   );
 }
 
-function Finish({onFinish, initialValues}){
-  return(
-    <div style={{color:"green", display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+function Finish({ onFinish, initialValues }) {
+  return (
+    <div
+      style={{
+        color: "green",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <h1>Successfully Uploaded!</h1>
-      <Button type="primary" htmlType="submit" onClick={onFinish}>Finish</Button>
+      <Button type="primary" htmlType="submit" onClick={onFinish}>
+        Finish
+      </Button>
     </div>
-  )
+  );
 }
 
-function Document({onFinish, initialValues}) {
+function Document({ onFinish, initialValues }) {
   const props = {
     name: "file",
     action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
@@ -148,14 +246,17 @@ function Document({onFinish, initialValues}) {
           },
         ]}
       >
-        <Input type= "number"/>
+        <Input type="number" />
       </Form.Item>
       <Form.Item label="Adhar Card" name={"adharcard"}>
         <Upload {...props}>
           <Button icon={<UploadOutlined />}></Button>
         </Upload>
       </Form.Item>
-      <Form.Item label="Last standard passing certificate" name={"passingcertificate"}>
+      <Form.Item
+        label="Last standard passing certificate"
+        name={"passingcertificate"}
+      >
         <Upload {...props}>
           <Button icon={<UploadOutlined />}></Button>
         </Upload>
@@ -167,7 +268,7 @@ function Document({onFinish, initialValues}) {
   );
 }
 
-function PersonalDetails({onFinish, initialValues}) {
+function PersonalDetails({ onFinish, initialValues }) {
   return (
     <Form onFinish={onFinish} initialValues={initialValues}>
       <Form.Item
@@ -196,11 +297,8 @@ function PersonalDetails({onFinish, initialValues}) {
       >
         <Input />
       </Form.Item>
-      <Form.Item
-        label="Phone Number"
-        name={"phone"}
-      >
-        <Input type="number"/>
+      <Form.Item label="Phone Number" name={"phone"}>
+        <Input type="number" />
       </Form.Item>
       <Form.Item
         label="Address"
@@ -229,10 +327,7 @@ function PersonalDetails({onFinish, initialValues}) {
           <Radio value={2}>Female</Radio>
         </Radio.Group>
       </Form.Item>
-      <Form.Item
-        label="Caste"
-        name={"caste"}
-      >
+      <Form.Item label="Caste" name={"caste"}>
         <Select
           initialValues="Select Caste"
           style={{
@@ -267,10 +362,7 @@ function PersonalDetails({onFinish, initialValues}) {
           ]}
         />
       </Form.Item>
-      <Form.Item
-        label="Reason fror Drop"
-        name={"reason"}
-      >
+      <Form.Item label="Reason fror Drop" name={"reason"}>
         <Select
           initialValues="Select Reason"
           style={{
@@ -317,10 +409,7 @@ function PersonalDetails({onFinish, initialValues}) {
           ]}
         />
       </Form.Item>
-      <Form.Item
-        label="School Board"
-        name={"board"}
-      >
+      <Form.Item label="School Board" name={"board"}>
         <Select
           initialValues="Select Board"
           style={{
@@ -355,10 +444,7 @@ function PersonalDetails({onFinish, initialValues}) {
           ]}
         />
       </Form.Item>
-      <Form.Item
-        label="District"
-        name={"district"}
-      >
+      <Form.Item label="District" name={"district"}>
         <Select
           initialValues="Select District"
           style={{
