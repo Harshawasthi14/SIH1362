@@ -3,7 +3,11 @@ import { Avatar, Space } from "antd";
 import institute from "./institute.png";
 import dropout from "./dropout.png";
 import student from "./student.png";
+import data from "./database.png";
+import { Divider } from "antd";
+
 import React, { useState } from "react";
+import { bgcolor } from "@mui/system";
 
 export default function Overview() {
   return <Home />;
@@ -50,7 +54,44 @@ function Home() {
             />
           </Space>
         </div>
-        <div className="two"></div>
+
+        <div className="two">
+          <Space direction="vertical" size={80}>
+            <Divider
+              style={{ fontSize: "40px", position: "relative", left: "-45px" }}
+            >
+              Impact of Various Schemes and Intiative
+            </Divider>
+            <Space className="spaceCard" direction="horizontal" size={30}>
+              <Caard2
+                title={"Gross Enrollment Ratio"}
+                bgcolor={"rgba(230, 92, 98, 1)"}
+              />
+              <Caard2
+                title={"Gross Enrollment Ratio"}
+                bgcolor={"rgba(248, 169, 32, 1)"}
+              />
+              <Caard2
+                title={"Gross Enrollment Ratio"}
+                bgcolor={"rgba(41, 168, 205, 1)"}
+              />
+            </Space>
+            <Space className="spaceCard" direction="horizontal" size={30}>
+              <Caard2
+                title={"Gross Enrollment Ratio"}
+                bgcolor={"rgba(85, 185, 46, 1)"}
+              />
+              <Caard2
+                title={"Gross Enrollment Ratio"}
+                bgcolor={"rgba(230, 92, 98, 1)"}
+              />
+              <Caard2
+                title={"Gross Enrollment Ratio"}
+                bgcolor={"rgba(85, 185, 46, 1)"}
+              />
+            </Space>
+          </Space>
+        </div>
       </div>
     </>
   );
@@ -138,5 +179,40 @@ function Caard(props) {
         </div>
       </div>
     </>
+  );
+}
+
+function Caard2(props) {
+  return (
+    <div className="Caard2">
+      <div className="first">
+        <div className="avatar2">
+          <Avatar size={90} src={data} />
+        </div>
+        <span
+          style={{
+            fontSize: "35px",
+            position: "relative",
+            top: "-15%",
+            fontWeight: "600",
+            color: props.bgcolor,
+          }}
+        >
+          {props.title}
+        </span>
+      </div>
+      <div className="second" style={{ backgroundColor: props.bgcolor }}>
+        <Space direction="horizontal" size={90}>
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "20px" }}>Elementary</p>
+            <p style={{ fontSize: "35px", fontWeight: "450" }}>100.13%</p>
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "20px" }}>Secondary</p>
+            <p style={{ fontSize: "35px", fontWeight: "450" }}>79.56%</p>
+          </div>
+        </Space>
+      </div>
+    </div>
   );
 }
