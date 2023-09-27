@@ -51,11 +51,26 @@ function AdminDashboard() {
             <RecentOrders itype="Private" />
             <RecentOrders itype="Government" />
           </Space>
+          <Mapp/>
         </Space>
       </div>
     </>
   );
 } 
+
+function Mapp(){
+  return(
+    <div className="mapp" style={{padding:"10px 10px", backgroundColor:"rgba(31, 41, 55, 1)", borderRadius:"10px"}}>
+      <iframe
+        width="100%"
+        height="500px"
+        src="https://api.mapbox.com/styles/v1/hs7898753/cln1vvjuk037201r7cmt46c20.html?title=false&access_token=pk.eyJ1IjoiaHM3ODk4NzUzIiwiYSI6ImNsbjFyaTlwaDAxZ2Iyam8zOGNyNWRoaHgifQ.fSbOrY1hgOdnFGc1xAHG5w&zoomwheel=false#3.26/36.99/-98.68"
+        title="Satellite Streets"
+        style={{ border: "none" }}
+      ></iframe>
+    </div>
+  );
+}
 
 function ReasonBars(){
 
