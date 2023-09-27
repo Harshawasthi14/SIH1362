@@ -1,4 +1,5 @@
 import { Card, Space, Statistic, Table, Typography, Col, Row } from "antd";
+import * as XLSX from 'xlsx'
 import {
   ShoppingCartOutlined,
   ShoppingOutlined,
@@ -77,7 +78,24 @@ function InstituteDashboard() {
 function FileUpload() {
   const [excelFile, setExcelFile] = useState(null);
   const [typeError, setTypeError] = useState(null);
-
+  const readExcelData = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const binaryData = e.target.result;
+        const workbook = XLSX.read(binaryData, { type: 'array' });
+        const worksheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[worksheetName];
+        const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+        resolve(data);
+      };
+      reader.onerror = (error) => {
+        reject(error);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  };
+  
   // submit state
   const [excelData, setExcelData] = useState(null);
 
@@ -103,6 +121,29 @@ function FileUpload() {
       console.log('Please select your file');
     }
   }
+  const sendToServer = async (data) => {
+    try {
+      const response = await fetch('/importStudent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data }),
+      });
+  
+      if (response.ok) {
+        console.log('Data sent to server successfully');
+     
+      } else {
+        console.error('Failed to send data to server:', response.status);
+      
+      }
+    } catch (error) {
+      console.error('Error sending data to server:', error);
+      
+    }
+  };
+  
   
   // submit event
   const handleFileSubmit=(e)=>{
