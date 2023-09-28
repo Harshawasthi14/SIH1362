@@ -1,16 +1,19 @@
 import React from 'react';
 import {
-  
   UserDeleteOutlined ,
   BankOutlined,
-
-  
 }from "@ant-design/icons";
 import "./index.css";
-import { Card, Space, Statistic, Table, Typography, Col, Row } from "antd";
+import { Card, Space, Statistic, Table, Typography, Col, Row,Button } from "antd";
 import { Select } from 'antd';
+import { useState } from 'react';
 const { Option } = Select;
 export default function Dropout() {
+  const [showTable, setShowTable] = useState(false);
+
+  const searchBox = () => {
+    setShowTable(true);
+  };
   return ( 
   
     <div className="dropout" style={{ paddingTop:'15px'}}>
@@ -19,10 +22,52 @@ export default function Dropout() {
       <FirstLine />
       <SecondLine/>
       <DropdownList />
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh' }}>
+    <Space>
+      <Button onClick={searchBox}>Search</Button>
+    </Space>
+    </div>
+      
+      {showTable && (
+        <Table dataSource={dataSource} columns={columns} />
+      )}
     </Space>
   </div>
   );
 }
+const dataSource = [
+  {
+    key: '1',
+    name: 'Hardik',
+    school:'St.Paul' ,
+    district: 'Vadodhara',
+  },
+  {
+    key: '2',
+    name: 'Harsh',
+    school:'Vandana School' ,
+    district: 'Ahemdabad',
+  },
+];
+
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: 'School',
+    dataIndex: 'school',
+    key: 'school',
+  },
+  {
+    title: 'District',
+    dataIndex: 'district',
+    key: 'district',
+  },
+];
+
 
 function FirstLine() {
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./index.css";
-import { Card, Space } from "antd";
+import { Button, Card, Space } from "antd";
+import {Input,Table} from "antd"
 const { Meta } = Card;
 const DropoutPolicy = () => {
   const [isDropout, setIsDropout] = useState(false);
@@ -268,12 +269,57 @@ const DropoutPolicy = () => {
             </section>
 
             <section id="drop">
-              <button onClick={handleDropout}>Dropout-Analysis</button>
+            {/* <button onClick={handleDropout}>Dropout-Analysis</button> */}
             </section>
           </div>
         </Space>
+        <div>
+          <br></br>
+        <div>
+          <h1>Policy Recommendation</h1>
+          <h3>Policy Keyword </h3>
+          <Input placeholder="Policy Keyword" />
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh' }}>
+          <Button>Search</Button>
+          </div>
+        <Table dataSource={dataSource} columns={columns} />
+        </div>
+        </div>
       </div>
     </div>
   );
 };
+const dataSource = [
+  {
+    key: '1',
+    keyword: 'Financial Assistance',
+    policy:'Vidhya Deep Yojna' ,
+    description: ' The Insurance scheme is adopted children where the premium is paid by the Government ',
+  },
+  {
+    key: '2',
+    keyword: 'Health Assistance',
+    policy:'Nirogi Bal' ,
+    description: 'Government ensures on Nirogi Bal scheme along with Bal Pravesh as Health is a prime concern of the child ',
+  },
+];
+
+const columns = [
+  {
+    title: 'Keyword',
+    dataIndex: 'keyword',
+    key: 'keyword',
+  },
+  {
+    title: 'Policy',
+    dataIndex: 'policy',
+    key: 'policy',
+  },
+  {
+    title: 'Description',
+    dataIndex: 'description',
+    key: 'description',
+  },
+];
+
 export default DropoutPolicy;

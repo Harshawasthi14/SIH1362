@@ -1,4 +1,4 @@
-import { Card, Space, Statistic, Table, Typography } from "antd";
+import { Card, Space, Statistic, Table, Typography,Col,Row } from "antd";
 import {
   ShoppingCartOutlined,
   ShoppingOutlined,
@@ -52,6 +52,29 @@ function AdminDashboard() {
             <RecentOrders itype="Government" />
           </Space>
           <Mapp/>
+        </Space>
+        <Space>
+        <div>
+          <h1>Policy Prediction</h1>
+          <Row gutter={16}>
+    <Col span={8}>
+      <Card title="Vidhyalaxmi Bonds" bordered={false}>
+      Gujarat Government focus on role of Education in Poverty Eradication and the campaign is aimed at ensuring maximum enrollment of boys and girls in primary schools all across the state. 
+      </Card>
+    </Col>
+    <Col span={8}>
+      <Card title="Nirogi Bal" bordered={false}>
+        
+Government ensures on Nirogi Bal scheme along with Bal Pravesh as Health is a prime concern of the child while it attends the classroom. Literacy to Health with Nirogi Bal is announced for 2008-09 with mass movement for Safe Health with impact to Social Development of Gujarat.
+      </Card>
+    </Col>
+    <Col span={8}>
+      <Card title="Bal Pravesh | Mid Day Meal Schemes" bordered={false}>
+    Government schemes like Bal Pravesh and Nirogi Bal is also made a part of the Kanya Kelavani campaign.
+      </Card>
+    </Col>
+    </Row>
+        </div>
         </Space>
       </div>
     </>
